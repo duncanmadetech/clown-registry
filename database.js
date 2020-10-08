@@ -13,12 +13,22 @@ const sequelize = new Sequelize(process.env.DB_SCHEMA || 'postgres',
 const Clown = sequelize.define('Clown', {
     clownName: {
         type: Sequelize.STRING,
+        unique: true,
         allowNull: false
     },
     shoeSize: {
         type: Sequelize.STRING,
-        allowNull: true
+        allowNull: false
     },
+    bowTie: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
+        defaultValue: false
+    },
+    noseColour: {
+        type: Sequelize.STRING,
+        allowNull: false
+    }
 });
 module.exports = {
     sequelize: sequelize,

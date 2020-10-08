@@ -9,16 +9,20 @@ test('create clown', async () => {
     const clown = await db.Clown.create({
         id: 1,
         clownName: 'Dribbles',
-        shoeSize: 'Huge'
+        shoeSize: 'Huge',
+        bowTie: true,
+        noseColour: 'Pink'
     });
     expect(clown.id).toEqual(1);
 });
 
 test('get clown', async () => {
-    expect.assertions(2);
+    expect.assertions(4);
     const clown = await db.Clown.findByPk(1);
     expect(clown.clownName).toEqual('Dribbles');
     expect(clown.shoeSize).toEqual('Huge');
+    expect(clown.bowTie).toEqual(true);
+    expect(clown.noseColour).toEqual('Pink');
 });
 
 test('delete clown', async () => {

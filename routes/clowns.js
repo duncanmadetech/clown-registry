@@ -26,6 +26,8 @@ router.put("/", function(req, res) {
     db.Clown.create({
         clownName: req.body.clownName,
         shoeSize: req.body.shoeSize,
+        bowTie: req.body.bowTie,
+        noseColour: req.body.noseColour,
         id: req.body.id
         })
         .then( clown => {
